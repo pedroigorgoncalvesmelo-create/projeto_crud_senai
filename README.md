@@ -25,7 +25,7 @@ O banco organiza as seguintes informações:
 * `fornecedores`
 * `funcionarios` (ligado com cidades e departamentos)
 
-## 💻 Como rodar na sua máquina
+## Como rodar na sua máquina
 
 1. Baixe o repositório:
    ```bash
