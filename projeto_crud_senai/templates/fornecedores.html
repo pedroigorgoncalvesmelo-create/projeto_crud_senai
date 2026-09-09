@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Gerenciamento de Fornecedores</h2>
+</div>
+
+<!-- Form de Cadastro -->
+<div class="card mb-4">
+    <div class="card-header bg-primary text-white">Cadastrar Novo Fornecedor</div>
+    <div class="card-body">
+        <form action="/fornecedores/salvar" method="POST" class="row g-3">
+            <div class="col-md-6">
+                <label for="nome" class="form-label">Nome Empresa / Fornecedor</label>
+                <input type="text" class="form-control" id="nome" name="nome" required>
+            </div>
+            <div class="col-md-6">
+                <label for="cnpj" class="form-label">CNPJ</label>
+                <input type="text" class="form-control" id="cnpj" name="cnpj" required>
+            </div>
+            <div class="col-12 text-end">
+                <button type="submit" class="btn btn-success">Salvar Fornecedor</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Tabela de Listagem -->
+<div class="card">
+    <div class="card-header bg-dark text-white">Lista de Fornecedores</div>
+    <div class="card-body p-0">
+        <table class="table table-striped table-hover mb-0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Empresa</th>
+                    <th>CNPJ</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for forn in fornecedores %}
+                <tr>
+                    <td>{{ forn.id }}</td>
+                    <td>{{ forn.nome }}</td>
+                    <td>{{ forn.cnpj }}</td>
+                    <td>
+                        <a href="/fornecedores/deletar/{{ forn.id }}" class="btn btn-danger btn-sm" onclick="return confirm('Excluir fornecedor?')">Excluir</a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="4" class="text-center text-muted">Nenhum fornecedor cadastrado.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

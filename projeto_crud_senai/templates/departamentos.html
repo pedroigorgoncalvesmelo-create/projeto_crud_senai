@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+<div class="container mt-4">
+    <h2>Gerenciamento de Clientes</h2>
+    
+    <!-- Exibição de Mensagens/Alertas (Validação de CPF/CNPJ) -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"Sim, vamos criar os 3 arquivos HTML que faltam para completar as telas de CRUD solicitadas pelo professor: **`departamentos.html`**, **`clientes.html`** e **`fornecedores.html`**.
+
+Abaixo está o código pronto de cada um deles, já formatado com o Bootstrap 5 seguindo o padrão das suas outras telas (`base.html`):
+
+---
+
+### 1. `templates/departamentos.html`
+
+Crie o arquivo **`departamentos.html`** dentro da pasta `templates` e cole o código:
+
+```html
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Gerenciamento de Departamentos</h2>
+</div>
+
+<!-- Form de Cadastro -->
+<div class="card mb-4">
+    <div class="card-header bg-primary text-white">Cadastrar Novo Departamento</div>
+    <div class="card-body">
+        <form action="/departamentos/salvar" method="POST" class="row g-3">
+            <div class="col-md-8">
+                <label for="nome" class="form-label">Nome do Departamento</label>
+                <input type="text" class="form-control" id="nome" name="nome" required placeholder="Ex: Recursos Humanos">
+            </div>
+            <div class="col-md-4 d-flex align-items-end">
+                <button type="submit" class="btn btn-success w-100">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Tabela de Listagem -->
+<div class="card">
+    <div class="card-header bg-dark text-white">Lista de Departamentos</div>
+    <div class="card-body p-0">
+        <table class="table table-striped table-hover mb-0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dep in departamentos %}
+                <tr>
+                    <td>{{ dep.id }}</td>
+                    <td>{{ dep.nome }}</td>
+                    <td>
+                        <a href="/departamentos/deletar/{{ dep.id }}" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="3" class="text-center text-muted">Nenhum departamento cadastrado.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
