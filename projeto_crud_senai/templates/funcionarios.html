@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Gerenciamento de Funcionários</h2>
+
+<form method="POST" class="row g-3 mb-4 bg-white p-3 rounded shadow-sm">
+    <div class="col-md-4">
+        <input type="text" name="nome" class="form-control" placeholder="Nome Completo" required>
+    </div>
+    <div class="col-md-4">
+        <input type="text" name="cpf" class="form-control" placeholder="CPF (xxx.xxx.xxx-xx)" required>
+    </div>
+    <div class="col-md-4">
+        <input type="text" name="cargo" class="form-control" placeholder="Cargo" required>
+    </div>
+    <div class="col-md-4">
+        <input type="number" step="0.01" name="salario" class="form-control" placeholder="Salário" required>
+    </div>
+    <div class="col-md-4">
+        <select name="id_departamento" class="form-select" required>
+            <option value="">Selecione o Departamento</option>
+            {% for d in departamentos %}
+                <option value="{{ d.id_departamento }}">{{ d.nome }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-md-4">
+        <select name="id_cidade" class="form-select" required>
+            <option value="">Selecione a Cidade</option>
+            {% for c in cidades %}
+                <option value="{{ c.id_cidade }}">{{ c.nome }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Cadastrar Funcionário</button>
+    </div>
+</form>
+
+<table class="table table-striped bg-white">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Cargo</th>
+            <th>Salário</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for f in funcionarios %}
+        <tr>
+            <td>{{ f.id_funcionario }}</td>
+            <td>{{ f.nome }}</td>
+            <td>{{ f.cpf }}</td>
+            <td>{{ f.cargo }}</td>
+            <td>R$ {{ f.salario }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

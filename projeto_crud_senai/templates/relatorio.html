@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Relatório Integrado de Funcionários</h2>
+<table class="table table-bordered bg-white mt-3">
+    <thead class="table-dark">
+        <tr>
+            <th>Funcionário</th>
+            <th>Cargo</th>
+            <th>Salário</th>
+            <th>Departamento</th>
+            <th>Cidade</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in dados %}
+        <tr>
+            <td>{{ row.funcionario }}</td>
+            <td>{{ row.cargo }}</td>
+            <td>R$ {{ row.salario }}</td>
+            <td>{{ row.departamento }}</td>
+            <td>{{ row.cidade }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

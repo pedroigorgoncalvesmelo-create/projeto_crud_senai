@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row align-items-center mb-5 mt-3">
+    <div class="col-lg-8">
+        <span class="badge bg-primary-subtle text-primary fw-semibold px-3 py-2 rounded-pill mb-2">Painel de Controle</span>
+        <h1 class="fw-bold text-dark display-5">Sistema de Gestão Empresarial</h1>
+        <p class="text-secondary lead fs-5">
+            Plataforma para gerenciamento centralizado de cidades, departamentos, colaboradores e fornecedores da organização.
+        </p>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card card-custom h-100 p-4 bg-white">
+            <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="bg-primary bg-opacity-10 p-3 rounded-3 text-primary">
+                    <i class="bi bi-building fs-3"></i>
+                </div>
+                <div>
+                    <h5 class="fw-bold mb-0">Cidades</h5>
+                    <small class="text-muted">Cadastro de Localidades</small>
+                </div>
+            </div>
+            <p class="text-secondary fs-6 flex-grow-1">Gerencie os municípios e estados onde sua empresa opera ou possui clientes vinculados.</p>
+            <a href="/cidades" class="btn btn-outline-primary btn-custom w-100 mt-2">
+                Acessar Cidades <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card card-custom h-100 p-4 bg-white">
+            <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="bg-success bg-opacity-10 p-3 rounded-3 text-success">
+                    <i class="bi bi-people fs-3"></i>
+                </div>
+                <div>
+                    <h5 class="fw-bold mb-0">Funcionários</h5>
+                    <small class="text-muted">Quadro de Pessoal</small>
+                </div>
+            </div>
+            <p class="text-secondary fs-6 flex-grow-1">Controle o cadastro de colaboradores, atribuição de cargos, salários e departamentos.</p>
+            <a href="/funcionarios" class="btn btn-outline-success btn-custom w-100 mt-2">
+                Acessar Funcionários <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card card-custom h-100 p-4 bg-white">
+            <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="bg-warning bg-opacity-10 p-3 rounded-3 text-warning">
+                    <i class="bi bi-file-earmark-bar-graph fs-3"></i>
+                </div>
+                <div>
+                    <h5 class="fw-bold mb-0">Relatório Integrado</h5>
+                    <small class="text-muted">Análise de Dados</small>
+                </div>
+            </div>
+            <p class="text-secondary fs-6 flex-grow-1">Visualize relatórios unificados cruzando informações de funcionários, cargos e localidades.</p>
+            <a href="/relatorio" class="btn btn-warning text-white btn-custom w-100 mt-2">
+                Ver Relatórios <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

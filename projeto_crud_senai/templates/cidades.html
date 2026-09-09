@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Gerenciamento de Cidades</h2>
+<form method="POST" class="row g-3 mb-4">
+    <div class="col-md-6">
+        <input type="text" name="nome" class="form-control" placeholder="Nome da Cidade" required>
+    </div>
+    <div class="col-md-4">
+        <input type="text" name="estado" class="form-control" placeholder="UF (ex: SP)" maxlength="2" required>
+    </div>
+    <div class="col-md-2">
+        <button type="submit" class="btn btn-success w-100">Cadastrar</button>
+    </div>
+</form>
+
+<table class="table table-striped bg-white">
+    <thead>
+        <tr><th>ID</th><th>Nome</th><th>Estado</th><th>Ações</th></tr>
+    </thead>
+    <tbody>
+        {% for c in cidades %}
+        <tr>
+            <td>{{ c.id_cidade }}</td>
+            <td>{{ c.nome }}</td>
+            <td>{{ c.estado }}</td>
+            <td><a href="/cidades/delete/{{ c.id_cidade }}" class="btn btn-danger btn-sm">Excluir</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
